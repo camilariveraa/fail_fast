@@ -1,8 +1,11 @@
 import NavBar from "./components/navbar";
+import FocusInput from "./components/ref_practice/focus_input";
 
 const App: React.FC = () => {
   return (
-    <NavBar></NavBar>
+    <div>
+    <NavBar></NavBar> 
+    </div>
   );
 };
 

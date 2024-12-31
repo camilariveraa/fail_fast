@@ -1,17 +1,20 @@
-const Test = () => {
-    const handleClick = () => {
-        window.open("https://www.ycombinator.com", "_blank");
-    };
+import { SetStateAction, useState } from 'react';
 
-    return ( 
-        <button
-            onClick={handleClick}
-            className="w-40 h-20 bg-lime-400 flex items-center justify-center p-4 m-3 border-2 border-blue-200 hover:bg-lime-500 focus:outline-none focus:ring-2 focus:ring-blue-300 transition"
-        >
-            Hello World
-        </button>
-    );
-}
- 
-export default Test;
-    
+export default function InputComponent() { 
+  const [inputText, setText] = useState(''); 
+
+  function handleChange(e: { target: { value: SetStateAction<string>; }; }) { 
+    setText(e.target.value); 
+  } 
+
+  return ( 
+    <> 
+      <input value={inputText} onChange={handleChange}
+      className='bg-slate-600' /> 
+      <p>You typed: {inputText}</p> 
+      <button onClick={() => setText('')} className='bg-red-400'> 
+        Reset 
+      </button> 
+    </> 
+  ); 
+} 
